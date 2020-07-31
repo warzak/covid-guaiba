@@ -1,0 +1,7 @@
+{
+  "name": "covid-guaiba",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
