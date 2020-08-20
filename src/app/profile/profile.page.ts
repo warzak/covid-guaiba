@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+  sexos: Array<string>;
+
+  constructor(
+      public formBuilder: FormBuilder,
+      private router: Router
+  ) { }
 
   ngOnInit() {
+
+    this.sexos = [
+      "Masculino",
+      "Feminino"
+    ];
+
+    this.form = this.formBuilder.group({
+      nome: new FormControl(''),
+      cpf: new FormControl(''),
+      celular: new FormControl(''),
+      email: new FormControl(''),
+      sexo: new FormControl(''),
+    });
+  }
+
+
+  onSubmit(values){
+    console.log(values);
+    this.router.navigate(["/profile"]);
   }
 
 }

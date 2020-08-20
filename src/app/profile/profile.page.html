@@ -1,58 +1,85 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-title>Meus Dados</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding class="form-content">
 
-  <ion-list>
+    <ion-content padding class="form-content">
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+            <ion-item>
+                <ion-label position="floating" color="primary">Nome Completo</ion-label>
+                <ion-input type="text" formControlName="nome"></ion-input>
+            </ion-item>
 
-    <ion-item>
-      <ion-label floating>Foto</ion-label>
-      <ion-input type="img"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label floating>Nome Completo</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+            <ion-item>
+                <ion-label position="floating" color="primary">Celular</ion-label>
+                <ion-input type="text" formControlName="celular"></ion-input>
+            </ion-item>
 
-    <ion-item>
-      <ion-label floating>Celular</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label floating>CPF</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+            <ion-item>
+                <ion-label position="floating" color="primary">CPF</ion-label>
+                <ion-input type="text" formControlName="cpf"></ion-input>
+            </ion-item>
 
-    <ion-item>
-      <ion-label floating>E-MAIL</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label floating>Data de Nascimento</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+            <ion-item>
+                <ion-label position="floating" color="primary">Email</ion-label>
+                <ion-input type="text" formControlName="email"></ion-input>
+            </ion-item>
 
-    <ion-item>
-      <ion-label floating>Sexo</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label floating>Estado</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+            <ion-item>
+                <ion-label position="floating" color="primary">Sexo</ion-label>
+                <ion-select formControlName="sexo" cancelText="Cancel" okText="OK">
+                    <ion-select-option *ngFor="let sexo of sexos" [value]="sexo">{{sexo}}</ion-select-option>
+                </ion-select>
+            </ion-item>
 
-    <ion-item>
-      <ion-label floating>Cidade</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  
-  </ion-list> 
+            <ion-button color="primary" class="submit-btn" expand="block" type="submit">Salvar</ion-button>
+        </form>
+    </ion-content>
+
+<!--    <ion-list>-->
+<!--        <ion-item>-->
+<!--            <ion-label floating>Nome Completo</ion-label>-->
+<!--            <ion-input type="text"></ion-input>-->
+<!--        </ion-item>-->
+
+<!--        <ion-item>-->
+<!--            <ion-label floating>Celular</ion-label>-->
+<!--            <ion-input type="number"></ion-input>-->
+<!--        </ion-item>-->
+
+<!--        <ion-item>-->
+<!--            <ion-label floating>CPF</ion-label>-->
+<!--            <ion-input type="number"></ion-input>-->
+<!--        </ion-item>-->
+
+<!--        <ion-item>-->
+<!--            <ion-label floating>E-mail</ion-label>-->
+<!--            <ion-input type="email"></ion-input>-->
+<!--        </ion-item>-->
+
+<!--        <ion-item>-->
+<!--            <ion-label floating>Data de Nascimento</ion-label>-->
+<!--            <ion-input type="date"></ion-input>-->
+<!--        </ion-item>-->
+
+<!--        <ion-item>-->
+<!--            <ion-label floating>Sexo</ion-label>-->
+<!--            <ion-input type="text"></ion-input>-->
+<!--        </ion-item>-->
+
+<!--        <ion-item>-->
+<!--            <ion-label floating>Estado</ion-label>-->
+<!--            <ion-input type="text"></ion-input>-->
+<!--        </ion-item>-->
+
+<!--        <ion-item>-->
+<!--            <ion-label floating>Cidade</ion-label>-->
+<!--            <ion-input type="text"></ion-input>-->
+<!--        </ion-item>-->
+
+<!--    </ion-list>-->
 
 </ion-content>
